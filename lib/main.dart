@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'theme/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,12 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(94, 0, 255, 132),
-        ),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      theme: appTheme,
+      home: const MyHomePage(title: 'Flutter Demo Home Page',),
     );
   }
 }
@@ -44,7 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: appTheme.colorScheme.primary,
+        foregroundColor: appTheme.colorScheme.onSecondary,
         title: Text(widget.title),
       ),
       body: Center(
@@ -54,9 +51,10 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text('You have pushed the button this many times:'),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: Theme.of(context).textTheme.displayLarge,
+              
             ),
-            Text('Cześć!', style: TextStyle(fontFamily: 'NotoSansCham', fontSize: 34, fontWeight: FontWeight.w600 )),
+            Text('Cześć!', style: TextStyle(fontFamily: 'NotoSansCham', fontSize: 34, fontWeight: FontWeight.w600, )),
           ],
         ),
       ),
