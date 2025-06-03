@@ -58,11 +58,34 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      
+      floatingActionButton: customSettingsButton(
+         _incrementCounter,
       ),
     );
   }
+}
+Widget customSettingsButton(VoidCallback onPressed) {
+  return GestureDetector(
+    onTap: onPressed,
+    child: Container(
+      padding: const EdgeInsets.all(14),
+      decoration: const BoxDecoration(
+        color: Colors.blueAccent,
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 6,
+            offset: Offset(2, 2),
+          ),
+        ],
+      ),
+      child: const Icon(
+        Icons.settings,
+        color: Colors.white,
+        size: 28,
+      ),
+    ),
+  );
 }
